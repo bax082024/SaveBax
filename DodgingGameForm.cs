@@ -49,6 +49,13 @@ namespace DodgingGame
             collisionSound = new AudioFileReader("Sounds/collision.mp3");
             effectPlayer = new WaveOutEvent();
 
+            // Play background music on loop
+            backgroundPlayer.PlaybackStopped += (s, e) =>
+            {
+                backgroundMusic.Position = 0; // Restart the music
+                backgroundPlayer.Play();
+            };
+
             // Load the images
             playerImage = Image.FromFile("Images/Bax.jpg");
             obstacleImage = Image.FromFile("Images/water.png");
