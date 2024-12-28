@@ -287,6 +287,17 @@ namespace DodgingGame
         {
             Graphics g = e.Graphics;
 
+            // Draw the player with a glow effect when invincible
+            if (isInvincible)
+            {
+                // Add a glow effect
+                using (SolidBrush glowBrush = new SolidBrush(Color.FromArgb(100, Color.Yellow)))
+                {
+                    g.FillEllipse(glowBrush, playerX - 5, playerY - 5, playerWidth + 10, playerHeight + 10);
+                }
+            }
+
+
             // Draw the player
             g.DrawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
 
@@ -309,6 +320,23 @@ namespace DodgingGame
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
+
+            // Determine background colors based on active power-up
+            Color topColor = Color.LightSkyBlue;
+            Color bottomColor = Color.DarkBlue;
+
+            if (isInvincible)
+            {
+                // Flashing yellow for invincibility
+                topColor = Color.Yellow;
+                bottomColor = Color.Orange;
+            }
+            else if (isSlowRain)
+            {
+                // Darker gradient for slow rain
+                topColor = Color.LightGray;
+                bottomColor = Color.DarkGray;
+            }
 
             // Draw the gradient background for the entire form
             using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
