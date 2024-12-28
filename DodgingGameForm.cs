@@ -167,6 +167,13 @@ namespace DodgingGame
                         MessageBox.Show($"Error playing collision sound: {ex.Message}", "Sound Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
+                    // Prompt the player for their name
+                    string playerName = PromptForName();
+                    if (!string.IsNullOrEmpty(playerName))
+                    {
+                        SaveHighScore(playerName, score);
+                    }
+
                     MessageBox.Show($"Game Over! Score: {score} Level: {level}",  "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
