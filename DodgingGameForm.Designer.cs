@@ -87,6 +87,7 @@
             // 
             gamePanel.Anchor = AnchorStyles.None;
             gamePanel.BackColor = Color.Transparent;
+            gamePanel.BorderStyle = BorderStyle.FixedSingle;
             gamePanel.Location = new Point(96, 107);
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(400, 500);

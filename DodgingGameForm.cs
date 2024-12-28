@@ -1,3 +1,5 @@
+using System.Drawing.Drawing2D;
+
 namespace DodgingGame
 {
     public partial class DodgingGameForm : Form
@@ -38,6 +40,11 @@ namespace DodgingGame
             // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
             this.KeyUp += Form1_KeyUp;
+
+            // Enable double buffering for smoother graphics
+            this.DoubleBuffered = true;
+
+            this.BackColor = Color.Transparent;
 
             // Configure the game timer
             gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
@@ -133,6 +140,23 @@ namespace DodgingGame
                 g.DrawImage(obstacleImage, obstacle.X, obstacle.Y, obstacleWidth, obstacleHeight);
             }
         }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Draw the gradient background for the entire form
+            using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.LightSkyBlue,  // Top color
+                Color.Orange,        // Bottom color
+                LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
+            }
+        }
+
+
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {
