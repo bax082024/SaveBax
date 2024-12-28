@@ -13,10 +13,25 @@ namespace DodgingGame
         private int playerHeight = 45; // Height of the player
         private int playerSpeed = 10; // Player's movement speed
 
-        private List<Rectangle> obstacles = new List<Rectangle>(); // Obstacles
+        private List<Obstacle> obstacles = new List<Obstacle>();
         private int obstacleWidth = 20;
         private int obstacleHeight = 20;
         private int obstacleSpeed = 5;
+
+        private List<PowerUp> powerUps = new List<PowerUp>();
+        private int powerUpWidth = 30;
+        private int powerUpHeight = 30;
+
+        // Power-up state
+        private bool isInvincible = false;
+        private bool isSlowRain = false;
+        private int powerUpDuration = 5000; // 5 seconds
+        private DateTime powerUpStartTime;
+
+        // Load power-up images
+        private Image umbrellaImage;
+        private Image raincoatImage;
+
 
         private int score = 0; // Game score
         
@@ -66,6 +81,8 @@ namespace DodgingGame
             // Load the images
             playerImage = Image.FromFile("Images/Bax.jpg");
             obstacleImage = Image.FromFile("Images/water.png");
+            umbrellaImage = Image.FromFile("Images/umbrella.png");
+            raincoatImage = Image.FromFile("Images/raincoat.png");
 
             // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
@@ -128,35 +145,63 @@ namespace DodgingGame
             // Move obstacles down
             for (int i = 0; i < obstacles.Count; i++)
             {
-                obstacles[i] = new Rectangle(
-                    obstacles[i].X,
-                    obstacles[i].Y + obstacleSpeed,
+                obstacles[i].Rect = new Rectangle(
+                    obstacles[i].Rect.X,
+                    obstacles[i].Rect.Y + obstacleSpeed,
                     obstacleWidth,
                     obstacleHeight
                 );
             }
 
             // Remove obstacles that move off the screen
-            obstacles.RemoveAll(o => o.Y > gamePanel.Height);
+            obstacles.RemoveAll(o => o.Rect.Y > gamePanel.Height);
 
             // Add new obstacles randomly
             if (random.Next(0, 100) < 10) // 10% chance to spawn
             {
                 int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
-                obstacles.Add(new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight));
+                obstacles.Add(new Obstacle
+                {
+                    Rect = new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight)
+                });
             }
+
+            for (int i = 0; i < powerUps.Count; i++)
+            {
+                powerUps[i].Rect = new Rectangle(
+                    powerUps[i].Rect.X,
+                    powerUps[i].Rect.Y + obstacleSpeed,
+                    powerUpWidth,
+                    powerUpHeight
+                );
+            }
+
+            powerUps.RemoveAll(p => p.Rect.Y > gamePanel.Height);
+
+            if (random.Next(0, 1000) < 2) // 0.05% chance to spawn
+            {
+                int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
+                bool isUmbrella = random.Next(0, 2) == 0; // 50% chance
+
+                powerUps.Add(new PowerUp
+                {
+                    Rect = new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight),
+                    Type = isUmbrella ? "umbrella" : "raincoat"
+                });
+            }
+
 
             // Check for collisions
             Rectangle player = new Rectangle(playerX, playerY, playerWidth, playerHeight);
 
             foreach (var obstacle in obstacles)
             {
-                if (player.IntersectsWith(obstacle))
+                if (!isInvincible && player.IntersectsWith(obstacle.Rect)) // Skip collision if invincible
                 {
                     gameTimer.Stop();
                     GameSession.CurrentScore = score;
 
-                    // Ensure collision sound plays
+                    // Play collision sound and show game over
                     try
                     {
                         if (effectPlayer.PlaybackState == PlaybackState.Playing)
@@ -180,9 +225,41 @@ namespace DodgingGame
                         highScoreForm.ShowDialog();
                     }
 
-
                     return;
                 }
+            }
+
+            foreach (var powerUp in powerUps.ToList())
+            {
+                if (player.IntersectsWith(powerUp.Rect))
+                {
+                    powerUps.Remove(powerUp);
+
+                    if (powerUp.Type == "umbrella") // Activate umbrella effect
+                    {
+                        isInvincible = true;
+                        powerUpStartTime = DateTime.Now;
+                    }
+                    else if (powerUp.Type == "raincoat") // Activate raincoat effect
+                    {
+                        isSlowRain = true;
+                        powerUpStartTime = DateTime.Now;
+                        obstacleSpeed = Math.Max(obstacleSpeed - 3, 2);
+                    }
+                }
+            }
+
+
+            // Deactivate power-ups after their duration
+            if ((isInvincible || isSlowRain) && (DateTime.Now - powerUpStartTime).TotalMilliseconds > powerUpDuration)
+            {
+                if (isSlowRain)
+                {
+                    obstacleSpeed += 3; // Reset obstacle speed
+                }
+
+                isInvincible = false;
+                isSlowRain = false;
             }
 
             // Update score and level
@@ -216,8 +293,17 @@ namespace DodgingGame
             // Draw the obstacles
             foreach (var obstacle in obstacles)
             {
-                g.DrawImage(obstacleImage, obstacle.X, obstacle.Y, obstacleWidth, obstacleHeight);
+                g.DrawImage(obstacleImage, obstacle.Rect.X, obstacle.Rect.Y, obstacleWidth, obstacleHeight);
             }
+
+            foreach (var powerUp in powerUps)
+            {
+                if (powerUp.Type == "umbrella")
+                    g.DrawImage(umbrellaImage, powerUp.Rect.X, powerUp.Rect.Y, powerUpWidth, powerUpHeight);
+                else if (powerUp.Type == "raincoat")
+                    g.DrawImage(raincoatImage, powerUp.Rect.X, powerUp.Rect.Y, powerUpWidth, powerUpHeight);
+            }
+
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -298,5 +384,8 @@ namespace DodgingGame
         }
 
         
+
+
+
     }
 }

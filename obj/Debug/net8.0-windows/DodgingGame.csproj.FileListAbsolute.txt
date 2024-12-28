@@ -15,6 +15,8 @@ C:\HjemmeKode\C-Sharp\MyProjects\DodgingGame\obj\Debug\net8.0-windows\DodgingGam
 C:\HjemmeKode\C-Sharp\MyProjects\DodgingGame\obj\Debug\net8.0-windows\DodgingGame.genruntimeconfig.cache
 C:\HjemmeKode\C-Sharp\MyProjects\DodgingGame\obj\Debug\net8.0-windows\ref\DodgingGame.dll
 C:\HjemmeKode\C-Sharp\MyProjects\DodgingGame\obj\Debug\net8.0-windows\DodgingGame.DodgingGameForm.resources
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\raincoat.png
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\umbrella.png
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\gameplay.mp3
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\collision.mp3
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\Bax.jpg
@@ -33,6 +35,7 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.Wasapi.
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.WinForms.dll
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.WinMM.dll
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.csproj.AssemblyReference.cache
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.DodgingGameForm.resources
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.Properties.Resources.resources
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.UI.HighScoreForm.resources
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.csproj.GenerateResource.cache
@@ -47,4 +50,3 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\refint\Dodging
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.pdb
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.genruntimeconfig.cache
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\ref\DodgingGame.dll
-C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.DodgingGameForm.resources

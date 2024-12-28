@@ -9,10 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\raincoat.png" />
+    <None Remove="Images\umbrella.png" />
     <None Remove="Sounds\gameplay.mp3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Images\raincoat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\umbrella.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\gameplay.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
