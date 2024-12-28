@@ -117,6 +117,19 @@ namespace DodgingGame
             }
         }
 
+        private void Form1_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+                moveLeft = true;
+            else if (e.KeyCode == Keys.Right)
+                moveRight = true;
+            else if (e.KeyCode == Keys.Up)
+                moveUp = true;
+            else if (e.KeyCode == Keys.Down)
+                moveDown = true;
+        }
+
+
 
 
 
