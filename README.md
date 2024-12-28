@@ -50,7 +50,11 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 ---
 
 ## Power Up`s
-- <img src="Images/umbrella.png" alt="1" width="40"> 
-- <img src="Images/raincoat.png" alt="1" width="40">
+- <img src="Images/umbrella.png" alt="1" width="40"> : **Invincibility** for 5 seconds.
+- <img src="Images/raincoat.png" alt="1" width="40"> : **Slows down obstacles** for 5 seconds.
+
+---
+
+
 
 
