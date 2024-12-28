@@ -37,7 +37,6 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\game.pn
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\water.png
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.Properties.Resources.resources
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\gameplay.mp3
-C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\startgame.mp3
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.dll
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.Asio.dll
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.Core.dll

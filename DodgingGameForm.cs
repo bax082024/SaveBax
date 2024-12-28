@@ -89,6 +89,10 @@ namespace DodgingGame
             level = 1;
             obstacleSpeed = 5;
 
+            // Update UI
+            labelScore.Text = $"Score: {score}";
+            labelLevel.Text = $"Level: {level}";
+
             // Start background music
             if (backgroundPlayer.PlaybackState != PlaybackState.Playing)
             {
@@ -163,7 +167,7 @@ namespace DodgingGame
                         MessageBox.Show($"Error playing collision sound: {ex.Message}", "Sound Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    MessageBox.Show($"Game Over! Score: {score}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Game Over! Score: {score} Level: {level}",  "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
