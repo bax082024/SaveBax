@@ -37,6 +37,16 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 
 ---
 
+## How to Play
+
+1. Click **Start** to begin the game
+2. Use the arrow keys to move **Bax** and avoid the rain!
+3. Catch power-ups to activate special abilities:
+	- **Umbrella:** Makes Bax invincible.
+	- **Raincoat** Slows down falling obstacles.
+4. **Survive** as long as you can while scoring points and leveling up!
+5. Check your high score and try to beat it!
+
 
 
 
