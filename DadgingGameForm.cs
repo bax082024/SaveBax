@@ -13,8 +13,11 @@ namespace DodgingGame
         private int obstacleSpeed = 5;
 
         private int score = 0; // Game score
-        private Timer gameTimer = new Timer(); // Timer for the game loop
+        private System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
         private Random random = new Random(); // Random number generator
+
+        private bool moveLeft, moveRight, moveUp, moveDown;
+
 
 
         public DadgingGameForm()
@@ -23,13 +26,13 @@ namespace DodgingGame
 
             // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
-
-            // Attach the Paint event to the gamePanel
-            gamePanel.Paint += GamePanel_Paint;
-
+            
             // Configure the game timer
             gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
             gameTimer.Tick += GameTimer_Tick;
+
+            this.KeyDown += Form1_KeyDown;
+            gamePanel.Paint += GamePanel_Paint;
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
