@@ -67,6 +67,18 @@ namespace DodgingGame
                 int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
                 obstacles.Add(new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight));
             }
+
+            // Check for collisions
+            Rectangle player = new Rectangle(playerX, gamePanel.Height - playerHeight, playerWidth, playerHeight);
+            foreach (var obstacle in obstacles)
+            {
+                if (player.IntersectsWith(obstacle))
+                {
+                    gameTimer.Stop();
+                    MessageBox.Show($"Game Over! Score: {score}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
         }
     }
 }
