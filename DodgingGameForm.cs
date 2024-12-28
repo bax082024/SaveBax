@@ -13,7 +13,7 @@ namespace DodgingGame
         private int playerHeight = 45; // Height of the player
         private int playerSpeed = 10; // Player's movement speed
 
-        private List<Rectangle> obstacles = new List<Rectangle>(); // Obstacles
+        private List<Obstacle> obstacles = new List<Obstacle>();
         private int obstacleWidth = 20;
         private int obstacleHeight = 20;
         private int obstacleSpeed = 5;
@@ -145,27 +145,25 @@ namespace DodgingGame
             // Move obstacles down
             for (int i = 0; i < obstacles.Count; i++)
             {
-                obstacles[i] = new Rectangle(
-                    obstacles[i].X,
-                    obstacles[i].Y + obstacleSpeed,
+                obstacles[i].Rect = new Rectangle(
+                    obstacles[i].Rect.X,
+                    obstacles[i].Rect.Y + obstacleSpeed,
                     obstacleWidth,
                     obstacleHeight
                 );
-            }           
+            }
 
             // Remove obstacles that move off the screen
-            obstacles.RemoveAll(o => o.Y > gamePanel.Height);
+            obstacles.RemoveAll(o => o.Rect.Y > gamePanel.Height);
 
             // Add new obstacles randomly
             if (random.Next(0, 100) < 10) // 10% chance to spawn
             {
                 int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
-                obstacles.Add(new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight));
-            }
-            if (random.Next(0, 500) < 2) // 0.4% chance to spawn
-            {
-                int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
-                powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
+                obstacles.Add(new Obstacle
+                {
+                    Rect = new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight)
+                });
             }
 
             for (int i = 0; i < powerUps.Count; i++)
@@ -198,7 +196,7 @@ namespace DodgingGame
 
             foreach (var obstacle in obstacles)
             {
-                if (!isInvincible && player.IntersectsWith(obstacle)) // Skip collision if invincible
+                if (!isInvincible && player.IntersectsWith(obstacle.Rect)) // Skip collision if invincible
                 {
                     gameTimer.Stop();
                     GameSession.CurrentScore = score;
@@ -295,8 +293,9 @@ namespace DodgingGame
             // Draw the obstacles
             foreach (var obstacle in obstacles)
             {
-                g.DrawImage(obstacleImage, obstacle.X, obstacle.Y, obstacleWidth, obstacleHeight);
+                g.DrawImage(obstacleImage, obstacle.Rect.X, obstacle.Rect.Y, obstacleWidth, obstacleHeight);
             }
+
             foreach (var powerUp in powerUps)
             {
                 if (powerUp.Type == "umbrella")
