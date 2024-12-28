@@ -173,9 +173,12 @@ namespace DodgingGame
                 level++;
                 obstacleSpeed += 2; // Increase obstacle speed
 
-                labelScore.Text = $"Score: {score}";
             }
-            
+
+            // Update UI
+            labelScore.Text = $"Score: {score}";
+            labelLevel.Text = $"Level: {level}";
+
 
             // Redraw the game
             gamePanel.Invalidate();
