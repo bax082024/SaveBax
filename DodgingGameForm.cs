@@ -18,7 +18,7 @@ namespace DodgingGame
         private int obstacleHeight = 20;
         private int obstacleSpeed = 5;
 
-        private List<Rectangle> powerUps = new List<Rectangle>(); // Power-ups
+        private List<PowerUp> powerUps = new List<PowerUp>();
         private int powerUpWidth = 30;
         private int powerUpHeight = 30;
 
@@ -168,38 +168,28 @@ namespace DodgingGame
                 powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
             }
 
-            // Move power-ups down
             for (int i = 0; i < powerUps.Count; i++)
             {
-                powerUps[i] = new Rectangle(
-                    powerUps[i].X,
-                    powerUps[i].Y + obstacleSpeed, // Use the same speed as obstacles
+                powerUps[i].Rect = new Rectangle(
+                    powerUps[i].Rect.X,
+                    powerUps[i].Rect.Y + obstacleSpeed,
                     powerUpWidth,
                     powerUpHeight
                 );
             }
 
-            // Remove power-ups that move off the screen
-            powerUps.RemoveAll(p => p.Y > gamePanel.Height);
+            powerUps.RemoveAll(p => p.Rect.Y > gamePanel.Height);
 
-            if (random.Next(0, 2000) < 1) 
+            if (random.Next(0, 2000) < 1) // 0.05% chance to spawn
             {
                 int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
+                bool isUmbrella = random.Next(0, 2) == 0; // 50% chance
 
-                // Randomly select a power-up: umbrella (50%) or raincoat (50%)
-                bool isUmbrella = random.Next(0, 2) == 0; // 0 means umbrella, 1 means raincoat
-                Rectangle powerUp = new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight);
-
-                if (isUmbrella)
+                powerUps.Add(new PowerUp
                 {
-                    // Spawn umbrella
-                    powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
-                }
-                else
-                {
-                    // Spawn raincoat
-                    powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
-                }
+                    Rect = new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight),
+                    Type = isUmbrella ? "umbrella" : "raincoat"
+                });
             }
 
 
@@ -243,24 +233,24 @@ namespace DodgingGame
 
             foreach (var powerUp in powerUps.ToList())
             {
-                if (player.IntersectsWith(powerUp))
+                if (player.IntersectsWith(powerUp.Rect))
                 {
                     powerUps.Remove(powerUp);
 
-                    // Randomly activate one of the power-ups
-                    if (random.Next(0, 2) == 0) // Umbrella: Invincibility
+                    if (powerUp.Type == "umbrella") // Activate umbrella effect
                     {
                         isInvincible = true;
                         powerUpStartTime = DateTime.Now;
                     }
-                    else // Raincoat: Slow down rain
+                    else if (powerUp.Type == "raincoat") // Activate raincoat effect
                     {
                         isSlowRain = true;
                         powerUpStartTime = DateTime.Now;
-                        obstacleSpeed = Math.Max(obstacleSpeed - 3, 2); // Reduce obstacle speed but keep it above 2
+                        obstacleSpeed = Math.Max(obstacleSpeed - 3, 2);
                     }
                 }
             }
+
 
             // Deactivate power-ups after their duration
             if ((isInvincible || isSlowRain) && (DateTime.Now - powerUpStartTime).TotalMilliseconds > powerUpDuration)
@@ -309,11 +299,12 @@ namespace DodgingGame
             }
             foreach (var powerUp in powerUps)
             {
-                if (random.Next(0, 2) == 0) // Randomly decide which power-up to draw
-                    g.DrawImage(umbrellaImage, powerUp.X, powerUp.Y, powerUpWidth, powerUpHeight);
-                else
-                    g.DrawImage(raincoatImage, powerUp.X, powerUp.Y, powerUpWidth, powerUpHeight);
+                if (powerUp.Type == "umbrella")
+                    g.DrawImage(umbrellaImage, powerUp.Rect.X, powerUp.Rect.Y, powerUpWidth, powerUpHeight);
+                else if (powerUp.Type == "raincoat")
+                    g.DrawImage(raincoatImage, powerUp.Rect.X, powerUp.Rect.Y, powerUpWidth, powerUpHeight);
             }
+
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
