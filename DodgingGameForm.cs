@@ -18,6 +18,21 @@ namespace DodgingGame
         private int obstacleHeight = 20;
         private int obstacleSpeed = 5;
 
+        private List<Rectangle> powerUps = new List<Rectangle>(); // Power-ups
+        private int powerUpWidth = 30;
+        private int powerUpHeight = 30;
+
+        // Power-up state
+        private bool isInvincible = false;
+        private bool isSlowRain = false;
+        private int powerUpDuration = 5000; // 5 seconds
+        private DateTime powerUpStartTime;
+
+        // Load power-up images
+        private Image umbrellaImage;
+        private Image raincoatImage;
+
+
         private int score = 0; // Game score
         
 
