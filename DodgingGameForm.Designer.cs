@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox6 = new PictureBox();
+            pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             label1 = new Label();
@@ -38,20 +40,20 @@
             labelScore = new Label();
             buttonStart = new Button();
             gamePanel = new Panel();
-            pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
+            labelLevel = new Label();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(labelLevel);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox5);
             panel1.Controls.Add(pictureBox4);
@@ -68,6 +70,28 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(602, 699);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Anchor = AnchorStyles.None;
+            pictureBox6.BackgroundImage = Properties.Resources.puddle;
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(507, 610);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(83, 77);
+            pictureBox6.TabIndex = 10;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = AnchorStyles.None;
+            pictureBox5.BackgroundImage = Properties.Resources.boot;
+            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox5.Location = new Point(12, 610);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(83, 77);
+            pictureBox5.TabIndex = 9;
+            pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -144,7 +168,7 @@
             labelScore.AutoSize = true;
             labelScore.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelScore.ForeColor = Color.White;
-            labelScore.Location = new Point(208, 74);
+            labelScore.Location = new Point(129, 74);
             labelScore.Name = "labelScore";
             labelScore.Size = new Size(97, 30);
             labelScore.TabIndex = 2;
@@ -174,27 +198,17 @@
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
             // 
-            // pictureBox5
+            // labelLevel
             // 
-            pictureBox5.Anchor = AnchorStyles.None;
-            pictureBox5.BackgroundImage = Properties.Resources.boot;
-            pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Location = new Point(12, 610);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(83, 77);
-            pictureBox5.TabIndex = 9;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Anchor = AnchorStyles.None;
-            pictureBox6.BackgroundImage = Properties.Resources.puddle;
-            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox6.Location = new Point(507, 610);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(83, 77);
-            pictureBox6.TabIndex = 10;
-            pictureBox6.TabStop = false;
+            labelLevel.Anchor = AnchorStyles.None;
+            labelLevel.AutoSize = true;
+            labelLevel.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelLevel.ForeColor = Color.White;
+            labelLevel.Location = new Point(335, 74);
+            labelLevel.Name = "labelLevel";
+            labelLevel.Size = new Size(93, 30);
+            labelLevel.TabIndex = 11;
+            labelLevel.Text = "Level : 1";
             // 
             // DodgingGameForm
             // 
@@ -207,12 +221,12 @@
             Text = "Dodging Game";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -230,5 +244,6 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
+        private Label labelLevel;
     }
 }
