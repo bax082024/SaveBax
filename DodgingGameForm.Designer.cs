@@ -38,6 +38,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(labelTitel);
             panel1.Controls.Add(labelScore);
             panel1.Controls.Add(buttonStart);
