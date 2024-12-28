@@ -1,4 +1,5 @@
 using System.Drawing.Drawing2D;
+using NAudio.Wave;
 
 namespace DodgingGame
 {
@@ -25,6 +26,14 @@ namespace DodgingGame
         private Image playerImage;
         private Image obstacleImage;
 
+        private WaveOutEvent backgroundPlayer;
+        private WaveOutEvent effectPlayer;
+        private AudioFileReader backgroundMusic;
+        private AudioFileReader collisionSound;
+
+        private int level = 1; // Current game level
+        private int pointsToNextLevel = 100; // Points required to level up
+
 
 
         public DodgingGameForm()
@@ -33,6 +42,22 @@ namespace DodgingGame
 
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+
+            // Load the background music
+            backgroundMusic = new AudioFileReader("Sounds/gameplay.mp3");
+            backgroundPlayer = new WaveOutEvent();
+            backgroundPlayer.Init(backgroundMusic);
+
+            // Load collision sound effect
+            collisionSound = new AudioFileReader("Sounds/collision.mp3");
+            effectPlayer = new WaveOutEvent();
+
+            // Play background music on loop
+            backgroundPlayer.PlaybackStopped += (s, e) =>
+            {
+                backgroundMusic.Position = 0; // Restart the music
+                backgroundPlayer.Play();
+            };
 
             // Load the images
             playerImage = Image.FromFile("Images/Bax.jpg");
@@ -61,6 +86,19 @@ namespace DodgingGame
             playerY = gamePanel.Height - playerHeight;
             obstacles.Clear();
             score = 0;
+            level = 1;
+            obstacleSpeed = 5;
+
+            // Update UI
+            labelScore.Text = $"Score: {score}";
+            labelLevel.Text = $"Level: {level}";
+
+            // Start background music
+            if (backgroundPlayer.PlaybackState != PlaybackState.Playing)
+            {
+                backgroundMusic.Position = 0; // Reset music
+                backgroundPlayer.Play();
+            }
 
             // Start the game
             gameTimer.Start();
@@ -112,14 +150,41 @@ namespace DodgingGame
                 if (player.IntersectsWith(obstacle))
                 {
                     gameTimer.Stop();
-                    MessageBox.Show($"Game Over! Score: {score}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Ensure collision sound plays
+                    try
+                    {
+                        if (effectPlayer.PlaybackState == PlaybackState.Playing)
+                        {
+                            effectPlayer.Stop();
+                        }
+                        effectPlayer.Init(collisionSound);
+                        collisionSound.Position = 0; // Reset sound position
+                        effectPlayer.Play();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error playing collision sound: {ex.Message}", "Sound Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    MessageBox.Show($"Game Over! Score: {score} Level: {level}",  "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
 
-            // Update score
+            // Update score and level
             score++;
+            if (score % pointsToNextLevel == 0) // Level up
+            {
+                level++;
+                obstacleSpeed += 2; // Increase obstacle speed
+
+            }
+
+            // Update UI
             labelScore.Text = $"Score: {score}";
+            labelLevel.Text = $"Level: {level}";
+
 
             // Redraw the game
             gamePanel.Invalidate();
