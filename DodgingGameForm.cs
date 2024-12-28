@@ -151,7 +151,7 @@ namespace DodgingGame
                     obstacleWidth,
                     obstacleHeight
                 );
-            }
+            }           
 
             // Remove obstacles that move off the screen
             obstacles.RemoveAll(o => o.Y > gamePanel.Height);
@@ -162,6 +162,27 @@ namespace DodgingGame
                 int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
                 obstacles.Add(new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight));
             }
+            if (random.Next(0, 500) < 2) // 0.4% chance to spawn
+            {
+                int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
+                powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
+            }
+
+            // Move power-ups down
+            for (int i = 0; i < powerUps.Count; i++)
+            {
+                powerUps[i] = new Rectangle(
+                    powerUps[i].X,
+                    powerUps[i].Y + obstacleSpeed, // Use the same speed as obstacles
+                    powerUpWidth,
+                    powerUpHeight
+                );
+            }
+
+            // Remove power-ups that move off the screen
+            powerUps.RemoveAll(p => p.Y > gamePanel.Height);
+
+            // Add new power-ups randomly
             if (random.Next(0, 500) < 2) // 0.4% chance to spawn
             {
                 int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);

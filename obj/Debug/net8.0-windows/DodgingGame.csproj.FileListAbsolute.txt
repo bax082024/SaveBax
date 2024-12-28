@@ -48,3 +48,5 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.pd
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.genruntimeconfig.cache
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\ref\DodgingGame.dll
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.DodgingGameForm.resources
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\raincoat.png
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\umbrella.png
