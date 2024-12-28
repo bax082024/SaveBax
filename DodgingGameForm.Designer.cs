@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            labelLevel = new Label();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -40,7 +41,8 @@
             labelScore = new Label();
             buttonStart = new Button();
             gamePanel = new Panel();
-            labelLevel = new Label();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
@@ -48,11 +50,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(statusStrip1);
             panel1.Controls.Add(labelLevel);
             panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(pictureBox5);
@@ -71,12 +75,24 @@
             panel1.Size = new Size(602, 699);
             panel1.TabIndex = 0;
             // 
+            // labelLevel
+            // 
+            labelLevel.Anchor = AnchorStyles.None;
+            labelLevel.AutoSize = true;
+            labelLevel.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelLevel.ForeColor = Color.White;
+            labelLevel.Location = new Point(335, 74);
+            labelLevel.Name = "labelLevel";
+            labelLevel.Size = new Size(93, 30);
+            labelLevel.TabIndex = 11;
+            labelLevel.Text = "Level : 1";
+            // 
             // pictureBox6
             // 
             pictureBox6.Anchor = AnchorStyles.None;
             pictureBox6.BackgroundImage = Properties.Resources.puddle;
             pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox6.Location = new Point(507, 610);
+            pictureBox6.Location = new Point(507, 597);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(83, 77);
             pictureBox6.TabIndex = 10;
@@ -87,7 +103,7 @@
             pictureBox5.Anchor = AnchorStyles.None;
             pictureBox5.BackgroundImage = Properties.Resources.boot;
             pictureBox5.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox5.Location = new Point(12, 610);
+            pictureBox5.Location = new Point(12, 597);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(83, 77);
             pictureBox5.TabIndex = 9;
@@ -198,17 +214,21 @@
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
             // 
-            // labelLevel
+            // statusStrip1
             // 
-            labelLevel.Anchor = AnchorStyles.None;
-            labelLevel.AutoSize = true;
-            labelLevel.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelLevel.ForeColor = Color.White;
-            labelLevel.Location = new Point(335, 74);
-            labelLevel.Name = "labelLevel";
-            labelLevel.Size = new Size(93, 30);
-            labelLevel.TabIndex = 11;
-            labelLevel.Text = "Level : 1";
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 677);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(602, 22);
+            statusStrip1.TabIndex = 12;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.BackColor = Color.Transparent;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(74, 17);
+            toolStripStatusLabel1.Text = "Bax Creation";
             // 
             // DodgingGameForm
             // 
@@ -227,6 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -245,5 +267,7 @@
         private PictureBox pictureBox6;
         private PictureBox pictureBox5;
         private Label labelLevel;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
