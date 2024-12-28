@@ -272,6 +272,13 @@ namespace DodgingGame
             {
                 g.DrawImage(obstacleImage, obstacle.X, obstacle.Y, obstacleWidth, obstacleHeight);
             }
+            foreach (var powerUp in powerUps)
+            {
+                if (random.Next(0, 2) == 0) // Randomly decide which power-up to draw
+                    g.DrawImage(umbrellaImage, powerUp.X, powerUp.Y, powerUpWidth, powerUpHeight);
+                else
+                    g.DrawImage(raincoatImage, powerUp.X, powerUp.Y, powerUpWidth, powerUpHeight);
+            }
         }
 
         protected override void OnPaintBackground(PaintEventArgs e)
