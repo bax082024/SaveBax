@@ -73,9 +73,29 @@ namespace DodgingGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap balloons {
+            get {
+                object obj = ResourceManager.GetObject("balloons", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boot {
             get {
                 object obj = ResourceManager.GetObject("boot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fireworks {
+            get {
+                object obj = ResourceManager.GetObject("fireworks", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
