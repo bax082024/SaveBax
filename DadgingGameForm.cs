@@ -47,7 +47,16 @@ namespace DodgingGame
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-
+            // Move obstacles down
+            for (int i = 0; i < obstacles.Count; i++)
+            {
+                obstacles[i] = new Rectangle(
+                    obstacles[i].X,
+                    obstacles[i].Y + obstacleSpeed,
+                    obstacleWidth,
+                    obstacleHeight
+                );
+            }
         }
     }
 }
