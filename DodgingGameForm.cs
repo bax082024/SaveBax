@@ -228,7 +228,17 @@ namespace DodgingGame
                 }
             }
 
+            // Deactivate power-ups after their duration
+            if ((isInvincible || isSlowRain) && (DateTime.Now - powerUpStartTime).TotalMilliseconds > powerUpDuration)
+            {
+                if (isSlowRain)
+                {
+                    obstacleSpeed += 3; // Reset obstacle speed
+                }
 
+                isInvincible = false;
+                isSlowRain = false;
+            }
 
             // Update score and level
             score++;
