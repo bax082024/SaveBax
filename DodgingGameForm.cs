@@ -1,14 +1,16 @@
 using System.Drawing.Drawing2D;
+using DodgingGame.UI;
 using NAudio.Wave;
 
 namespace DodgingGame
 {
+   
     public partial class DodgingGameForm : Form
     {
         private int playerX; // Player's horizontal position
         private int playerY; // Player's vertical position
-        private int playerWidth = 50; // Width of the player
-        private int playerHeight = 40; // Height of the player
+        private int playerWidth = 40; // Width of the player
+        private int playerHeight = 45; // Height of the player
         private int playerSpeed = 10; // Player's movement speed
 
         private List<Rectangle> obstacles = new List<Rectangle>(); // Obstacles
@@ -17,6 +19,8 @@ namespace DodgingGame
         private int obstacleSpeed = 5;
 
         private int score = 0; // Game score
+        
+
         private System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
         private Random random = new Random(); // Random number generator
 
@@ -32,7 +36,7 @@ namespace DodgingGame
         private AudioFileReader collisionSound;
 
         private int level = 1; // Current game level
-        private int pointsToNextLevel = 100; // Points required to level up
+        private int pointsToNextLevel = 150; // Points required to level up
 
 
 
@@ -150,6 +154,7 @@ namespace DodgingGame
                 if (player.IntersectsWith(obstacle))
                 {
                     gameTimer.Stop();
+                    GameSession.CurrentScore = score;
 
                     // Ensure collision sound plays
                     try
@@ -167,13 +172,22 @@ namespace DodgingGame
                         MessageBox.Show($"Error playing collision sound: {ex.Message}", "Sound Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                    MessageBox.Show($"Game Over! Score: {score} Level: {level}",  "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Game Over! Score: {score} Level: {level}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Open the high score form
+                    using (var highScoreForm = new HighScoreForm())
+                    {
+                        highScoreForm.ShowDialog();
+                    }
+
+
                     return;
                 }
             }
 
             // Update score and level
             score++;
+            GameSession.CurrentScore = score;            
             if (score % pointsToNextLevel == 0) // Level up
             {
                 level++;
@@ -264,6 +278,23 @@ namespace DodgingGame
                     break;
             }
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+       
+
+        private void SaveHighScore(string playerName, int score)
+        {
+            var highScores = JsonHelper.LoadHighScores();
+            highScores.Add(new HighScore { PlayerName = playerName, Score = score });
+            highScores.Sort((x, y) => y.Score.CompareTo(x.Score));
+            JsonHelper.SaveHighScores(highScores);
+        }
+
+        private void buttonHighScores_Click(object sender, EventArgs e)
+        {
+            using (var highScoreForm = new HighScoreForm())
+            {
+                highScoreForm.ShowDialog();
+            }
         }
 
         
