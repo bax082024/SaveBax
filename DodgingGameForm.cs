@@ -178,7 +178,7 @@ namespace DodgingGame
 
             powerUps.RemoveAll(p => p.Rect.Y > gamePanel.Height);
 
-            if (random.Next(0, 2000) < 1) // 0.05% chance to spawn
+            if (random.Next(0, 1000) < 2) // 0.05% chance to spawn
             {
                 int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
                 bool isUmbrella = random.Next(0, 2) == 0; // 50% chance
