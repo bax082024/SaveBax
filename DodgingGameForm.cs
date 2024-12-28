@@ -162,6 +162,11 @@ namespace DodgingGame
                 int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
                 obstacles.Add(new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight));
             }
+            if (random.Next(0, 500) < 2) // 0.4% chance to spawn
+            {
+                int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
+                powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
+            }
 
             // Check for collisions
             Rectangle player = new Rectangle(playerX, playerY, playerWidth, playerHeight);
