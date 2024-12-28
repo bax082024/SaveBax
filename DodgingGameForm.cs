@@ -125,13 +125,12 @@ namespace DodgingGame
             Graphics g = e.Graphics;
 
             // Draw the player
-            g.FillRectangle(Brushes.DarkBlue, playerX, playerY, playerWidth, playerHeight);
-
+            g.DrawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
 
             // Draw the obstacles
             foreach (var obstacle in obstacles)
             {
-                g.FillRectangle(Brushes.Red, obstacle);
+                g.DrawImage(obstacleImage, obstacle.X, obstacle.Y, obstacleWidth, obstacleHeight);
             }
         }
 
