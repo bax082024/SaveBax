@@ -87,5 +87,18 @@ namespace DodgingGame
             // Redraw the game
             gamePanel.Invalidate();
         }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left && playerX > 0)
+            {
+                playerX -= playerSpeed;
+            }
+            else if (e.KeyCode == Keys.Right && playerX < gamePanel.Width - playerWidth)
+            {
+                playerX += playerSpeed;
+            }
+        }
+
     }
 }
