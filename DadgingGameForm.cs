@@ -42,5 +42,12 @@ namespace DodgingGame
             // Start the game
             gameTimer.Start();
         }
+
+        // Game Loop
+
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
