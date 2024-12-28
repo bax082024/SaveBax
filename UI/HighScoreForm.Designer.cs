@@ -30,6 +30,7 @@
         {
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
+            listBoxHighScores = new ListBox();
             statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -38,7 +39,7 @@
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
             statusStrip1.Location = new Point(0, 449);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(421, 22);
+            statusStrip1.Size = new Size(319, 22);
             statusStrip1.TabIndex = 0;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -49,12 +50,23 @@
             toolStripStatusLabel1.Size = new Size(74, 17);
             toolStripStatusLabel1.Text = "Bax Creation";
             // 
+            // listBoxHighScores
+            // 
+            listBoxHighScores.BackColor = SystemColors.Info;
+            listBoxHighScores.FormattingEnabled = true;
+            listBoxHighScores.ItemHeight = 15;
+            listBoxHighScores.Location = new Point(46, 59);
+            listBoxHighScores.Name = "listBoxHighScores";
+            listBoxHighScores.Size = new Size(229, 319);
+            listBoxHighScores.TabIndex = 1;
+            // 
             // HighScoreForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGreen;
-            ClientSize = new Size(421, 471);
+            ClientSize = new Size(319, 471);
+            Controls.Add(listBoxHighScores);
             Controls.Add(statusStrip1);
             Name = "HighScoreForm";
             Text = "HighScore";
@@ -68,5 +80,6 @@
 
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
+        private ListBox listBoxHighScores;
     }
 }
