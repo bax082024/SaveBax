@@ -19,6 +19,10 @@ namespace DodgingGame
 
         private bool moveLeft, moveRight, moveUp, moveDown;
 
+        // Load images
+        private Image playerImage;
+        private Image obstacleImage;
+
 
 
         public DodgingGameForm()
