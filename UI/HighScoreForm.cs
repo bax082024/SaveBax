@@ -17,5 +17,17 @@ namespace DodgingGame.UI
             InitializeComponent();
             LoadHighScores();
         }
+
+        private void LoadHighScores()
+        {
+            var highScores = JsonHelper.LoadHighScores();
+            listBoxHighScores.Items.Clear();
+            foreach (var highScore in highScores)
+            {
+                listBoxHighScores.Items.Add($"{highScore.PlayerName}: {highScore.Score} - {highScore.Date.ToShortDateString()}");
+            }
+        }
+
+
     }
 }
