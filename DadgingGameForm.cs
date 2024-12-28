@@ -79,6 +79,13 @@ namespace DodgingGame
                     return;
                 }
             }
+
+            // Update score
+            score++;
+            labelScore.Text = $"Score: {score}";
+
+            // Redraw the game
+            gamePanel.Invalidate();
         }
     }
 }
