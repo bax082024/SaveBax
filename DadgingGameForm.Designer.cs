@@ -32,11 +32,13 @@
             gamePanel = new Panel();
             buttonStart = new Button();
             labelScore = new Label();
+            labelTitel = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(labelTitel);
             panel1.Controls.Add(labelScore);
             panel1.Controls.Add(buttonStart);
             panel1.Controls.Add(gamePanel);
@@ -76,6 +78,16 @@
             labelScore.TabIndex = 2;
             labelScore.Text = "Score :";
             // 
+            // labelTitel
+            // 
+            labelTitel.AutoSize = true;
+            labelTitel.Font = new Font("Snap ITC", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitel.Location = new Point(159, 9);
+            labelTitel.Name = "labelTitel";
+            labelTitel.Size = new Size(281, 42);
+            labelTitel.TabIndex = 3;
+            labelTitel.Text = "Dodging Game";
+            // 
             // DadgingGameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -96,5 +108,6 @@
         private Panel gamePanel;
         private Button buttonStart;
         private Label labelScore;
+        private Label labelTitel;
     }
 }
