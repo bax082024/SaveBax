@@ -59,6 +59,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Brown;
@@ -70,6 +71,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.None;
             pictureBox2.BackgroundImage = Properties.Resources.yellowumbrella;
             pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox2.Location = new Point(23, 12);
@@ -80,6 +82,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.BackgroundImage = Properties.Resources.greenumbrella;
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
             pictureBox1.Location = new Point(496, 12);
@@ -90,6 +93,7 @@
             // 
             // labelTitel
             // 
+            labelTitel.Anchor = AnchorStyles.None;
             labelTitel.AutoSize = true;
             labelTitel.BackColor = Color.Transparent;
             labelTitel.Font = new Font("Snap ITC", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -102,6 +106,7 @@
             // 
             // labelScore
             // 
+            labelScore.Anchor = AnchorStyles.None;
             labelScore.AutoSize = true;
             labelScore.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelScore.ForeColor = Color.White;
