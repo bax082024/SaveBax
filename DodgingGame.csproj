@@ -52,9 +52,6 @@
     <None Update="Images\Bax.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Images\game.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Images\water.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
