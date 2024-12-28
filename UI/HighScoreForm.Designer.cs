@@ -72,6 +72,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Algerian", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Brown;
             label1.Location = new Point(87, 9);
             label1.Name = "label1";
             label1.Size = new Size(146, 26);
@@ -89,25 +90,29 @@
             // btnAddName
             // 
             btnAddName.Anchor = AnchorStyles.None;
+            btnAddName.BackColor = Color.CadetBlue;
+            btnAddName.FlatStyle = FlatStyle.Popup;
             btnAddName.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddName.Location = new Point(101, 446);
             btnAddName.Name = "btnAddName";
             btnAddName.Size = new Size(102, 27);
             btnAddName.TabIndex = 4;
             btnAddName.Text = "Add Name";
-            btnAddName.UseVisualStyleBackColor = true;
+            btnAddName.UseVisualStyleBackColor = false;
             btnAddName.Click += btnAddName_Click;
             // 
             // btnCancel
             // 
             btnCancel.Anchor = AnchorStyles.None;
+            btnCancel.BackColor = Color.SlateBlue;
+            btnCancel.FlatStyle = FlatStyle.Popup;
             btnCancel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancel.Location = new Point(101, 479);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(102, 27);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // label2
@@ -116,6 +121,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Algerian", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Brown;
             label2.Location = new Point(87, 389);
             label2.Name = "label2";
             label2.Size = new Size(128, 15);
@@ -126,7 +132,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkGreen;
+            BackColor = Color.MidnightBlue;
             ClientSize = new Size(319, 553);
             Controls.Add(label2);
             Controls.Add(btnCancel);
