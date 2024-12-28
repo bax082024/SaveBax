@@ -1,8 +1,8 @@
 namespace DodgingGame
 {
-    public partial class Form1 : Form
+    public partial class DadgingGameForm : Form
     {
-        public Form1()
+        public DadgingGameForm()
         {
             InitializeComponent();
         }
