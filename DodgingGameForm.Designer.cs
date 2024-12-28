@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             labelLevel = new Label();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
@@ -41,21 +43,21 @@
             labelScore = new Label();
             buttonStart = new Button();
             gamePanel = new Panel();
-            statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            buttonHighScores = new Button();
             panel1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(buttonHighScores);
             panel1.Controls.Add(statusStrip1);
             panel1.Controls.Add(labelLevel);
             panel1.Controls.Add(pictureBox6);
@@ -74,6 +76,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(602, 699);
             panel1.TabIndex = 0;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 677);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(602, 22);
+            statusStrip1.TabIndex = 12;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.BackColor = Color.Transparent;
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(74, 17);
+            toolStripStatusLabel1.Text = "Bax Creation";
             // 
             // labelLevel
             // 
@@ -214,21 +232,16 @@
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
             // 
-            // statusStrip1
+            // buttonHighScores
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 677);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(602, 22);
-            statusStrip1.TabIndex = 12;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.BackColor = Color.Transparent;
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(74, 17);
-            toolStripStatusLabel1.Text = "Bax Creation";
+            buttonHighScores.BackColor = Color.SlateBlue;
+            buttonHighScores.FlatStyle = FlatStyle.Flat;
+            buttonHighScores.Location = new Point(516, 113);
+            buttonHighScores.Name = "buttonHighScores";
+            buttonHighScores.Size = new Size(75, 23);
+            buttonHighScores.TabIndex = 13;
+            buttonHighScores.Text = "HighScores";
+            buttonHighScores.UseVisualStyleBackColor = false;
             // 
             // DodgingGameForm
             // 
@@ -241,14 +254,14 @@
             Text = "Dodging Game";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -269,5 +282,6 @@
         private Label labelLevel;
         private StatusStrip statusStrip1;
         private ToolStripStatusLabel toolStripStatusLabel1;
+        private Button buttonHighScores;
     }
 }
