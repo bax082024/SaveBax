@@ -86,6 +86,8 @@ namespace DodgingGame
             playerY = gamePanel.Height - playerHeight;
             obstacles.Clear();
             score = 0;
+            level = 1;
+            obstacleSpeed = 5;
 
             // Start background music
             if (backgroundPlayer.PlaybackState != PlaybackState.Playing)
