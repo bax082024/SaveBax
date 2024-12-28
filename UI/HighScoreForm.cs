@@ -55,5 +55,10 @@ namespace DodgingGame.UI
             // Clear input
             textBoxInput.Text = string.Empty;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
