@@ -44,7 +44,7 @@ namespace DodgingGame
 
             // Enable double buffering for smoother graphics
             this.DoubleBuffered = true;
-         
+
 
             // Configure the game timer
             gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
@@ -125,7 +125,7 @@ namespace DodgingGame
             gamePanel.Invalidate();
         }
 
-      
+
 
         private void GamePanel_Paint(object sender, PaintEventArgs e)
         {
@@ -141,9 +141,20 @@ namespace DodgingGame
             }
         }
 
-        
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
 
-
+            // Draw the gradient background for the entire form
+            using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.LightSkyBlue,  // Top color
+                Color.DarkBlue,        // Bottom color
+                LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
+            }
+        }
 
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
@@ -190,11 +201,6 @@ namespace DodgingGame
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-
-
-
-
-
-
+        
     }
 }
