@@ -182,12 +182,26 @@ namespace DodgingGame
             // Remove power-ups that move off the screen
             powerUps.RemoveAll(p => p.Y > gamePanel.Height);
 
-            // Add new power-ups randomly
-            if (random.Next(0, 1000) < 1) // 0.1% chance to spawn
+            if (random.Next(0, 2000) < 1) 
             {
                 int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
-                powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
+
+                // Randomly select a power-up: umbrella (50%) or raincoat (50%)
+                bool isUmbrella = random.Next(0, 2) == 0; // 0 means umbrella, 1 means raincoat
+                Rectangle powerUp = new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight);
+
+                if (isUmbrella)
+                {
+                    // Spawn umbrella
+                    powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
+                }
+                else
+                {
+                    // Spawn raincoat
+                    powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
+                }
             }
+
 
             // Check for collisions
             Rectangle player = new Rectangle(playerX, playerY, playerWidth, playerHeight);
@@ -380,5 +394,8 @@ namespace DodgingGame
         }
 
         
+
+
+
     }
 }
