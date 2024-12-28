@@ -47,3 +47,4 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\NAudio.WinMM.d
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.csproj.AssemblyReference.cache
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingG.A4BE25D2.Up2Date
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\collision.mp3
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.UI.HighScoreForm.resources
