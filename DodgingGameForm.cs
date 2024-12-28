@@ -183,7 +183,7 @@ namespace DodgingGame
             powerUps.RemoveAll(p => p.Y > gamePanel.Height);
 
             // Add new power-ups randomly
-            if (random.Next(0, 500) < 2) // 0.4% chance to spawn
+            if (random.Next(0, 1000) < 1) // 0.1% chance to spawn
             {
                 int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
                 powerUps.Add(new Rectangle(powerUpX, 0, powerUpWidth, powerUpHeight));
