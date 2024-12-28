@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DodgingGame")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44fb5379780a54312a7e64ae013466296bbe2d41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6baed542ce292162ba0ed6af7e66940c0eb154a")]
 [assembly: System.Reflection.AssemblyProductAttribute("DodgingGame")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DodgingGame")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
