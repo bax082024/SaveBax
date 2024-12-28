@@ -20,6 +20,16 @@ namespace DodgingGame
         public DadgingGameForm()
         {
             InitializeComponent();
+
+            // Handle key events for player movement
+            this.KeyDown += Form1_KeyDown;
+
+            // Attach the Paint event to the gamePanel
+            gamePanel.Paint += GamePanel_Paint;
+
+            // Configure the game timer
+            gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
+            gameTimer.Tick += GameTimer_Tick;
         }
     }
 }
