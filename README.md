@@ -22,6 +22,21 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 
 ---
 
+## Installation
+
+**Prerequisites:**
+	- **.NET 8**
+	- **Visual Studio**
+
+**Steps:**
+
+1. Clone repository : **https://github.com/bax082024/SaveBax.git**
+2. Open solution in **Visual Studio**.
+3. **Rebuild project**
+4. Run & Enjoy.
+
+---
+
 
 
 
