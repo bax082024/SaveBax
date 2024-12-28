@@ -207,6 +207,29 @@ namespace DodgingGame
                 }
             }
 
+            foreach (var powerUp in powerUps.ToList())
+            {
+                if (player.IntersectsWith(powerUp))
+                {
+                    powerUps.Remove(powerUp);
+
+                    // Randomly activate one of the power-ups
+                    if (random.Next(0, 2) == 0) // Umbrella: Invincibility
+                    {
+                        isInvincible = true;
+                        powerUpStartTime = DateTime.Now;
+                    }
+                    else // Raincoat: Slow down rain
+                    {
+                        isSlowRain = true;
+                        powerUpStartTime = DateTime.Now;
+                        obstacleSpeed = Math.Max(obstacleSpeed - 3, 2); // Reduce obstacle speed but keep it above 2
+                    }
+                }
+            }
+
+
+
             // Update score and level
             score++;
             GameSession.CurrentScore = score;            
