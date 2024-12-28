@@ -67,4 +67,13 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 - <img src="Images/game.png" alt="1" width="500"> <img src="Images/highscore.png" alt="1" width="200">
 
 
+## Acknowledgements
 
+- **www.Flaticon.com:** used for icons
+
+## Contact
+
+For questions or feedback, please contact:
+	- **bax082024@gmail.com**
+
+---
