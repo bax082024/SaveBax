@@ -100,5 +100,23 @@ namespace DodgingGame
             }
         }
 
+        private void GamePanel_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            // Draw the player
+            g.FillRectangle(Brushes.Blue, playerX, gamePanel.Height - playerHeight, playerWidth, playerHeight);
+
+            // Draw the obstacles
+            foreach (var obstacle in obstacles)
+            {
+                g.FillRectangle(Brushes.Red, obstacle);
+            }
+        }
+
+
+
+
+
     }
 }
