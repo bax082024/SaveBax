@@ -273,6 +273,20 @@ namespace DodgingGame
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        
+        private string PromptForName()
+        {
+            using (var inputForm = new InputBox("Enter your name:", "High Score"))
+            {
+                if (inputForm.ShowDialog() == DialogResult.OK)
+                {
+                    return inputForm.InputText;
+                }
+            }
+            return string.Empty;
+        }
+
+
+
+
     }
 }
