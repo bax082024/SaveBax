@@ -285,6 +285,13 @@ namespace DodgingGame
             return string.Empty;
         }
 
+        private void SaveHighScore(string playerName, int score)
+        {
+            var highScores = JsonHelper.LoadHighScores();
+            highScores.Add(new HighScore { PlayerName = playerName, Score = score });
+            highScores.Sort((x, y) => y.Score.CompareTo(x.Score));
+            JsonHelper.SaveHighScores(highScores);
+        }
 
 
 
