@@ -31,6 +31,10 @@ namespace DodgingGame
 
             this.KeyPreview = true;
 
+            // Load the images
+            playerImage = Image.FromFile("Images/Bax.jpg");
+            obstacleImage = Image.FromFile("Images/water.png");
+
             // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
             this.KeyUp += Form1_KeyUp;
