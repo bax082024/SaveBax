@@ -166,9 +166,16 @@ namespace DodgingGame
                 }
             }
 
-            // Update score
+            // Update score and level
             score++;
-            labelScore.Text = $"Score: {score}";
+            if (score % pointsToNextLevel == 0) // Level up
+            {
+                level++;
+                obstacleSpeed += 2; // Increase obstacle speed
+
+                labelScore.Text = $"Score: {score}";
+            }
+            
 
             // Redraw the game
             gamePanel.Invalidate();
