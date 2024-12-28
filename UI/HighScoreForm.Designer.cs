@@ -36,7 +36,11 @@
             btnAddName = new Button();
             btnCancel = new Button();
             label2 = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // statusStrip1
@@ -130,12 +134,34 @@
             label2.TabIndex = 6;
             label2.Text = "Add Your Name :";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources._1st_prize;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(12, 6);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(50, 47);
+            pictureBox1.TabIndex = 7;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources._1st_prize;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(257, 6);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(50, 47);
+            pictureBox2.TabIndex = 8;
+            pictureBox2.TabStop = false;
+            // 
             // HighScoreForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
             ClientSize = new Size(319, 553);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(btnCancel);
             Controls.Add(btnAddName);
@@ -147,6 +173,8 @@
             Text = "HighScore";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -161,5 +189,7 @@
         private Button btnAddName;
         private Button btnCancel;
         private Label label2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
