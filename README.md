@@ -55,6 +55,13 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 
 ---
 
+## Controls
+
+- **Arrow Keys:**
+	- Move Bax: Left, Right, Up, Down.
+
+---
+
 
 
 
