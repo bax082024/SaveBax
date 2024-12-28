@@ -81,6 +81,8 @@ namespace DodgingGame
             // Load the images
             playerImage = Image.FromFile("Images/Bax.jpg");
             obstacleImage = Image.FromFile("Images/water.png");
+            umbrellaImage = Image.FromFile("Images/umbrella.png");
+            raincoatImage = Image.FromFile("Images/raincoat.png");
 
             // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
