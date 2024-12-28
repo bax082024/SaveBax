@@ -59,11 +59,13 @@
             // 
             listBoxHighScores.Anchor = AnchorStyles.None;
             listBoxHighScores.BackColor = SystemColors.Info;
+            listBoxHighScores.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            listBoxHighScores.ForeColor = Color.DarkSlateGray;
             listBoxHighScores.FormattingEnabled = true;
-            listBoxHighScores.ItemHeight = 15;
+            listBoxHighScores.ItemHeight = 21;
             listBoxHighScores.Location = new Point(46, 59);
             listBoxHighScores.Name = "listBoxHighScores";
-            listBoxHighScores.Size = new Size(229, 304);
+            listBoxHighScores.Size = new Size(229, 298);
             listBoxHighScores.TabIndex = 1;
             // 
             // label1
