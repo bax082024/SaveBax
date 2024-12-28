@@ -30,11 +30,13 @@
         {
             panel1 = new Panel();
             gamePanel = new Panel();
+            buttonStart = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(buttonStart);
             panel1.Controls.Add(gamePanel);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
@@ -50,6 +52,17 @@
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
+            // 
+            // buttonStart
+            // 
+            buttonStart.Anchor = AnchorStyles.None;
+            buttonStart.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonStart.Location = new Point(235, 627);
+            buttonStart.Name = "buttonStart";
+            buttonStart.Size = new Size(108, 37);
+            buttonStart.TabIndex = 1;
+            buttonStart.Text = "START";
+            buttonStart.UseVisualStyleBackColor = true;
             // 
             // DadgingGameForm
             // 
@@ -68,5 +81,6 @@
 
         private Panel panel1;
         private Panel gamePanel;
+        private Button buttonStart;
     }
 }
