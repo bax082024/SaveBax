@@ -12,6 +12,10 @@ namespace DodgingGame
         private int obstacleHeight = 20;
         private int obstacleSpeed = 5;
 
+        private int score = 0; // Game score
+        private Timer gameTimer = new Timer(); // Timer for the game loop
+        private Random random = new Random(); // Random number generator
+
 
         public DadgingGameForm()
         {
