@@ -1,4 +1,5 @@
 using System.Drawing.Drawing2D;
+using NAudio.Wave;
 
 namespace DodgingGame
 {
@@ -25,6 +26,11 @@ namespace DodgingGame
         private Image playerImage;
         private Image obstacleImage;
 
+        private WaveOutEvent backgroundPlayer;
+        private WaveOutEvent effectPlayer;
+        private AudioFileReader backgroundMusic;
+        private AudioFileReader collisionSound;
+
 
 
         public DodgingGameForm()
@@ -33,6 +39,15 @@ namespace DodgingGame
 
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+
+            // Load the background music
+            backgroundMusic = new AudioFileReader("Sounds/gameplay.mp3");
+            backgroundPlayer = new WaveOutEvent();
+            backgroundPlayer.Init(backgroundMusic);
+
+            // Load collision sound effect
+            collisionSound = new AudioFileReader("Sounds/collision.mp3");
+            effectPlayer = new WaveOutEvent();
 
             // Load the images
             playerImage = Image.FromFile("Images/Bax.jpg");
