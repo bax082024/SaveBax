@@ -15,6 +15,7 @@ namespace DodgingGame.UI
         public HighScoreForm()
         {
             InitializeComponent();
+            LoadHighScores();
         }
     }
 }

@@ -32,7 +32,7 @@
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             listBoxHighScores = new ListBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            textBoxNameInput = new TextBox();
             btnAddName = new Button();
             btnCancel = new Button();
             label2 = new Label();
@@ -63,7 +63,7 @@
             listBoxHighScores.ItemHeight = 15;
             listBoxHighScores.Location = new Point(46, 59);
             listBoxHighScores.Name = "listBoxHighScores";
-            listBoxHighScores.Size = new Size(229, 319);
+            listBoxHighScores.Size = new Size(229, 304);
             listBoxHighScores.TabIndex = 1;
             // 
             // label1
@@ -78,13 +78,13 @@
             label1.TabIndex = 2;
             label1.Text = "HighScore";
             // 
-            // textBox1
+            // textBoxNameInput
             // 
-            textBox1.Anchor = AnchorStyles.None;
-            textBox1.Location = new Point(67, 407);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(176, 23);
-            textBox1.TabIndex = 3;
+            textBoxNameInput.Anchor = AnchorStyles.None;
+            textBoxNameInput.Location = new Point(67, 407);
+            textBoxNameInput.Name = "textBoxNameInput";
+            textBoxNameInput.Size = new Size(176, 23);
+            textBoxNameInput.TabIndex = 3;
             // 
             // btnAddName
             // 
@@ -129,7 +129,7 @@
             Controls.Add(label2);
             Controls.Add(btnCancel);
             Controls.Add(btnAddName);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxNameInput);
             Controls.Add(label1);
             Controls.Add(listBoxHighScores);
             Controls.Add(statusStrip1);
@@ -147,7 +147,7 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ListBox listBoxHighScores;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxNameInput;
         private Button btnAddName;
         private Button btnCancel;
         private Label label2;
