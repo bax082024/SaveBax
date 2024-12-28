@@ -84,6 +84,13 @@ namespace DodgingGame
             obstacles.Clear();
             score = 0;
 
+            // Start background music
+            if (backgroundPlayer.PlaybackState != PlaybackState.Playing)
+            {
+                backgroundMusic.Position = 0; // Reset music
+                backgroundPlayer.Play();
+            }
+
             // Start the game
             gameTimer.Start();
 
