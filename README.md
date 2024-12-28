@@ -47,6 +47,10 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 4. **Survive** as long as you can while scoring points and leveling up!
 5. Check your high score and try to beat it!
 
+---
 
+## Power Up`s
+- <img src="Images/umbrella.png" alt="1" width="40"> 
+- <img src="Images/raincoat.png" alt="1" width="40">
 
 
