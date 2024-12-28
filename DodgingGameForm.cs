@@ -1,6 +1,6 @@
 namespace DodgingGame
 {
-    public partial class DadgingGameForm : Form
+    public partial class DodgingGameForm : Form
     {
         private int playerX; // Player's horizontal position
         private int playerY; // Player's vertical position
@@ -21,7 +21,7 @@ namespace DodgingGame
 
 
 
-        public DadgingGameForm()
+        public DodgingGameForm()
         {
             InitializeComponent();
 

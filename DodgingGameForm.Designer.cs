@@ -1,6 +1,6 @@
 ﻿namespace DodgingGame
 {
-    partial class DadgingGameForm
+    partial class DodgingGameForm
     {
         /// <summary>
         ///  Required designer variable.
