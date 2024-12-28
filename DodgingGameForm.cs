@@ -141,6 +141,23 @@ namespace DodgingGame
                 if (player.IntersectsWith(obstacle))
                 {
                     gameTimer.Stop();
+
+                    // Ensure collision sound plays
+                    try
+                    {
+                        if (effectPlayer.PlaybackState == PlaybackState.Playing)
+                        {
+                            effectPlayer.Stop();
+                        }
+                        effectPlayer.Init(collisionSound);
+                        collisionSound.Position = 0; // Reset sound position
+                        effectPlayer.Play();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error playing collision sound: {ex.Message}", "Sound Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                     MessageBox.Show($"Game Over! Score: {score}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
