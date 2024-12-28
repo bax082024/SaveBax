@@ -32,7 +32,7 @@ namespace DodgingGame
         private AudioFileReader collisionSound;
 
         private int level = 1; // Current game level
-        private int pointsToNextLevel = 100; // Points required to level up
+        private int pointsToNextLevel = 150; // Points required to level up
 
 
 
