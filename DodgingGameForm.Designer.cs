@@ -33,12 +33,18 @@
             labelScore = new Label();
             buttonStart = new Button();
             gamePanel = new Panel();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(labelTitel);
             panel1.Controls.Add(labelScore);
             panel1.Controls.Add(buttonStart);
@@ -75,7 +81,7 @@
             // buttonStart
             // 
             buttonStart.Anchor = AnchorStyles.None;
-            buttonStart.BackColor = Color.SlateGray;
+            buttonStart.BackColor = Color.CadetBlue;
             buttonStart.FlatStyle = FlatStyle.Popup;
             buttonStart.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonStart.Location = new Point(235, 627);
@@ -96,6 +102,26 @@
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.greenumbrella;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(496, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(83, 77);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackgroundImage = Properties.Resources.yellowumbrella;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox2.Location = new Point(23, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(83, 77);
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
             // DodgingGameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -107,6 +133,8 @@
             Text = "Dodging Game";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -117,5 +145,7 @@
         private Button buttonStart;
         private Label labelScore;
         private Label labelTitel;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
     }
 }

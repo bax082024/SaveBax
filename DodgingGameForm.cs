@@ -149,7 +149,7 @@ namespace DodgingGame
             using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
                 this.ClientRectangle,
                 Color.LightSkyBlue,  // Top color
-                Color.Orange,        // Bottom color
+                Color.DarkBlue,        // Bottom color
                 LinearGradientMode.Vertical))
             {
                 e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
