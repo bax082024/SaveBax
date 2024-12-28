@@ -57,6 +57,16 @@ namespace DodgingGame
                     obstacleHeight
                 );
             }
+
+            // Remove obstacles that move off the screen
+            obstacles.RemoveAll(o => o.Y > gamePanel.Height);
+
+            // Add new obstacles randomly
+            if (random.Next(0, 100) < 10) // 10% chance to spawn
+            {
+                int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
+                obstacles.Add(new Rectangle(obstacleX, 0, obstacleWidth, obstacleHeight));
+            }
         }
     }
 }
