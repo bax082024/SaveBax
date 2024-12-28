@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\HjemmeKode\\C-Sharp\\MyProjects\\DodgingGame\\DodgingGame.csproj": {}
+    "C:\\HjemmeKode\\C-Sharp\\MyProjects\\SaveBax\\DodgingGame.csproj": {}
   },
   "projects": {
-    "C:\\HjemmeKode\\C-Sharp\\MyProjects\\DodgingGame\\DodgingGame.csproj": {
+    "C:\\HjemmeKode\\C-Sharp\\MyProjects\\SaveBax\\DodgingGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\HjemmeKode\\C-Sharp\\MyProjects\\DodgingGame\\DodgingGame.csproj",
+        "projectUniqueName": "C:\\HjemmeKode\\C-Sharp\\MyProjects\\SaveBax\\DodgingGame.csproj",
         "projectName": "DodgingGame",
-        "projectPath": "C:\\HjemmeKode\\C-Sharp\\MyProjects\\DodgingGame\\DodgingGame.csproj",
+        "projectPath": "C:\\HjemmeKode\\C-Sharp\\MyProjects\\SaveBax\\DodgingGame.csproj",
         "packagesPath": "C:\\Users\\busch\\.nuget\\packages\\",
-        "outputPath": "C:\\HjemmeKode\\C-Sharp\\MyProjects\\DodgingGame\\obj\\",
+        "outputPath": "C:\\HjemmeKode\\C-Sharp\\MyProjects\\SaveBax\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
