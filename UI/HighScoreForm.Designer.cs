@@ -32,7 +32,7 @@
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             listBoxHighScores = new ListBox();
             label1 = new Label();
-            textBoxNameInput = new TextBox();
+            textBoxInput = new TextBox();
             btnAddName = new Button();
             btnCancel = new Button();
             label2 = new Label();
@@ -78,13 +78,13 @@
             label1.TabIndex = 2;
             label1.Text = "HighScore";
             // 
-            // textBoxNameInput
+            // textBoxInput
             // 
-            textBoxNameInput.Anchor = AnchorStyles.None;
-            textBoxNameInput.Location = new Point(67, 407);
-            textBoxNameInput.Name = "textBoxNameInput";
-            textBoxNameInput.Size = new Size(176, 23);
-            textBoxNameInput.TabIndex = 3;
+            textBoxInput.Anchor = AnchorStyles.None;
+            textBoxInput.Location = new Point(67, 407);
+            textBoxInput.Name = "textBoxInput";
+            textBoxInput.Size = new Size(176, 23);
+            textBoxInput.TabIndex = 3;
             // 
             // btnAddName
             // 
@@ -96,6 +96,7 @@
             btnAddName.TabIndex = 4;
             btnAddName.Text = "Add Name";
             btnAddName.UseVisualStyleBackColor = true;
+            btnAddName.Click += btnAddName_Click;
             // 
             // btnCancel
             // 
@@ -129,7 +130,7 @@
             Controls.Add(label2);
             Controls.Add(btnCancel);
             Controls.Add(btnAddName);
-            Controls.Add(textBoxNameInput);
+            Controls.Add(textBoxInput);
             Controls.Add(label1);
             Controls.Add(listBoxHighScores);
             Controls.Add(statusStrip1);
@@ -147,7 +148,7 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ListBox listBoxHighScores;
         private Label label1;
-        private TextBox textBoxNameInput;
+        private TextBox textBoxInput;
         private Button btnAddName;
         private Button btnCancel;
         private Label label2;

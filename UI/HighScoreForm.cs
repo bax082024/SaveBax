@@ -28,6 +28,32 @@ namespace DodgingGame.UI
             }
         }
 
+        private void btnAddName_Click(object sender, EventArgs e)
+        {
+            string playerName = textBoxInput.Text.Trim();
 
+            if (string.IsNullOrEmpty(playerName))
+            {
+                MessageBox.Show("Please enter a valid name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get the last game score (you can pass it as a parameter or retrieve it from another source)
+            int score = GameSession.CurrentScore; // This assumes you track the score in the main game
+
+            // Save the new high score
+            var highScores = JsonHelper.LoadHighScores();
+            highScores.Add(new HighScore { PlayerName = playerName, Score = score });
+            highScores.Sort((x, y) => y.Score.CompareTo(x.Score)); // Sort by highest score
+            JsonHelper.SaveHighScores(highScores);
+
+            // Update the list box
+            LoadHighScores();
+
+            MessageBox.Show("High score added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Clear input
+            textBoxInput.Text = string.Empty;
+        }
     }
 }
