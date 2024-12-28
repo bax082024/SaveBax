@@ -173,12 +173,12 @@ namespace DodgingGame
 
             foreach (var obstacle in obstacles)
             {
-                if (player.IntersectsWith(obstacle))
+                if (!isInvincible && player.IntersectsWith(obstacle)) // Skip collision if invincible
                 {
                     gameTimer.Stop();
                     GameSession.CurrentScore = score;
 
-                    // Ensure collision sound plays
+                    // Play collision sound and show game over
                     try
                     {
                         if (effectPlayer.PlaybackState == PlaybackState.Playing)
@@ -201,7 +201,6 @@ namespace DodgingGame
                     {
                         highScoreForm.ShowDialog();
                     }
-
 
                     return;
                 }
