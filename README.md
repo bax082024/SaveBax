@@ -64,7 +64,7 @@ Enjoy the gameplay with music, graphics, and dynamic effects!
 
 ## Screenshots
 
-- <img src="Images/game.png" alt="1" width="450"> <img src="Images/highscore.png" alt="1" width="150">
+- <img src="Images/game.png" alt="1" width="500"> <img src="Images/highscore.png" alt="1" width="200">
 
 
 
