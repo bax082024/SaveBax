@@ -32,3 +32,6 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\refint\Dodging
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.pdb
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\DodgingGame.genruntimeconfig.cache
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\obj\Debug\net8.0-windows\ref\DodgingGame.dll
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\Bax.jpg
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\game.png
+C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\water.png
