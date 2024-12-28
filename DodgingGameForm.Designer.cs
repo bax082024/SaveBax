@@ -236,12 +236,13 @@
             // 
             buttonHighScores.BackColor = Color.SlateBlue;
             buttonHighScores.FlatStyle = FlatStyle.Flat;
-            buttonHighScores.Location = new Point(516, 113);
+            buttonHighScores.Location = new Point(426, 648);
             buttonHighScores.Name = "buttonHighScores";
-            buttonHighScores.Size = new Size(75, 23);
+            buttonHighScores.Size = new Size(75, 26);
             buttonHighScores.TabIndex = 13;
             buttonHighScores.Text = "HighScores";
             buttonHighScores.UseVisualStyleBackColor = false;
+            buttonHighScores.Click += buttonHighScores_Click;
             // 
             // DodgingGameForm
             // 

@@ -1,4 +1,5 @@
 using System.Drawing.Drawing2D;
+using DodgingGame.UI;
 using NAudio.Wave;
 
 namespace DodgingGame
@@ -17,6 +18,8 @@ namespace DodgingGame
         private int obstacleSpeed = 5;
 
         private int score = 0; // Game score
+        
+
         private System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
         private Random random = new Random(); // Random number generator
 
@@ -176,13 +179,15 @@ namespace DodgingGame
                         SaveHighScore(playerName, score);
                     }
 
-                    
+
                     return;
                 }
             }
 
             // Update score and level
             score++;
+            GameSession.CurrentScore = score;
+            labelScore.Text = $"Score: {score}";
             if (score % pointsToNextLevel == 0) // Level up
             {
                 level++;
@@ -295,7 +300,14 @@ namespace DodgingGame
             JsonHelper.SaveHighScores(highScores);
         }
 
+        private void buttonHighScores_Click(object sender, EventArgs e)
+        {
+            highScoresForm.ShowDialog();
+        }
 
-
+        public static class GameSession
+        {
+            public static int CurrentScore { get; set; } = 0;
+        }
     }
 }
