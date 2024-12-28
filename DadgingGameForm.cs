@@ -31,5 +31,16 @@ namespace DodgingGame
             gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
             gameTimer.Tick += GameTimer_Tick;
         }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            // Reset game state
+            playerX = gamePanel.Width / 2; // Start in the middle
+            obstacles.Clear();
+            score = 0;
+
+            // Start the game
+            gameTimer.Start();
+        }
     }
 }

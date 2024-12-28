@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            gamePanel = new Panel();
-            buttonStart = new Button();
-            labelScore = new Label();
             labelTitel = new Label();
+            labelScore = new Label();
+            buttonStart = new Button();
+            gamePanel = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,14 +48,26 @@
             panel1.Size = new Size(602, 699);
             panel1.TabIndex = 0;
             // 
-            // gamePanel
+            // labelTitel
             // 
-            gamePanel.Anchor = AnchorStyles.None;
-            gamePanel.BackColor = Color.Transparent;
-            gamePanel.Location = new Point(96, 107);
-            gamePanel.Name = "gamePanel";
-            gamePanel.Size = new Size(400, 500);
-            gamePanel.TabIndex = 0;
+            labelTitel.AutoSize = true;
+            labelTitel.Font = new Font("Snap ITC", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitel.Location = new Point(137, 9);
+            labelTitel.Name = "labelTitel";
+            labelTitel.Size = new Size(320, 48);
+            labelTitel.TabIndex = 3;
+            labelTitel.Text = "Dodging Game";
+            // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelScore.ForeColor = Color.White;
+            labelScore.Location = new Point(208, 74);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(97, 30);
+            labelScore.TabIndex = 2;
+            labelScore.Text = "Score : 0";
             // 
             // buttonStart
             // 
@@ -69,27 +81,16 @@
             buttonStart.TabIndex = 1;
             buttonStart.Text = "START";
             buttonStart.UseVisualStyleBackColor = false;
+            buttonStart.Click += buttonStart_Click;
             // 
-            // labelScore
+            // gamePanel
             // 
-            labelScore.AutoSize = true;
-            labelScore.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelScore.ForeColor = Color.White;
-            labelScore.Location = new Point(208, 74);
-            labelScore.Name = "labelScore";
-            labelScore.Size = new Size(97, 30);
-            labelScore.TabIndex = 2;
-            labelScore.Text = "Score : 0";
-            // 
-            // labelTitel
-            // 
-            labelTitel.AutoSize = true;
-            labelTitel.Font = new Font("Snap ITC", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTitel.Location = new Point(137, 9);
-            labelTitel.Name = "labelTitel";
-            labelTitel.Size = new Size(320, 48);
-            labelTitel.TabIndex = 3;
-            labelTitel.Text = "Dodging Game";
+            gamePanel.Anchor = AnchorStyles.None;
+            gamePanel.BackColor = Color.Transparent;
+            gamePanel.Location = new Point(96, 107);
+            gamePanel.Name = "gamePanel";
+            gamePanel.Size = new Size(400, 500);
+            gamePanel.TabIndex = 0;
             // 
             // DadgingGameForm
             // 
