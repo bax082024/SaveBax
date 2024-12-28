@@ -287,6 +287,17 @@ namespace DodgingGame
         {
             Graphics g = e.Graphics;
 
+            // Draw the player with a glow effect when invincible
+            if (isInvincible)
+            {
+                // Add a glow effect
+                using (SolidBrush glowBrush = new SolidBrush(Color.FromArgb(100, Color.Yellow)))
+                {
+                    g.FillEllipse(glowBrush, playerX - 5, playerY - 5, playerWidth + 10, playerHeight + 10);
+                }
+            }
+
+
             // Draw the player
             g.DrawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
 
