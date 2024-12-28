@@ -31,11 +31,13 @@
             panel1 = new Panel();
             gamePanel = new Panel();
             buttonStart = new Button();
+            labelScore = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.Controls.Add(labelScore);
             panel1.Controls.Add(buttonStart);
             panel1.Controls.Add(gamePanel);
             panel1.Dock = DockStyle.Fill;
@@ -64,6 +66,16 @@
             buttonStart.Text = "START";
             buttonStart.UseVisualStyleBackColor = true;
             // 
+            // labelScore
+            // 
+            labelScore.AutoSize = true;
+            labelScore.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelScore.Location = new Point(192, 63);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(79, 30);
+            labelScore.TabIndex = 2;
+            labelScore.Text = "Score :";
+            // 
             // DadgingGameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -74,6 +86,7 @@
             Name = "DadgingGameForm";
             Text = "Dodging Game";
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -82,5 +95,6 @@
         private Panel panel1;
         private Panel gamePanel;
         private Button buttonStart;
+        private Label labelScore;
     }
 }
