@@ -1,3 +1,5 @@
+using System.Drawing.Drawing2D;
+
 namespace DodgingGame
 {
     public partial class DodgingGameForm : Form
@@ -5,7 +7,7 @@ namespace DodgingGame
         private int playerX; // Player's horizontal position
         private int playerY; // Player's vertical position
         private int playerWidth = 50; // Width of the player
-        private int playerHeight = 20; // Height of the player
+        private int playerHeight = 40; // Height of the player
         private int playerSpeed = 10; // Player's movement speed
 
         private List<Rectangle> obstacles = new List<Rectangle>(); // Obstacles
@@ -19,17 +21,30 @@ namespace DodgingGame
 
         private bool moveLeft, moveRight, moveUp, moveDown;
 
+        // Load images
+        private Image playerImage;
+        private Image obstacleImage;
+
 
 
         public DodgingGameForm()
         {
             InitializeComponent();
 
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
+
+            // Load the images
+            playerImage = Image.FromFile("Images/Bax.jpg");
+            obstacleImage = Image.FromFile("Images/water.png");
 
             // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
             this.KeyUp += Form1_KeyUp;
+
+            // Enable double buffering for smoother graphics
+            this.DoubleBuffered = true;
+         
 
             // Configure the game timer
             gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
@@ -117,15 +132,19 @@ namespace DodgingGame
             Graphics g = e.Graphics;
 
             // Draw the player
-            g.FillRectangle(Brushes.DarkBlue, playerX, playerY, playerWidth, playerHeight);
-
+            g.DrawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
 
             // Draw the obstacles
             foreach (var obstacle in obstacles)
             {
-                g.FillRectangle(Brushes.Red, obstacle);
+                g.DrawImage(obstacleImage, obstacle.X, obstacle.Y, obstacleWidth, obstacleHeight);
             }
         }
+
+        
+
+
+
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {

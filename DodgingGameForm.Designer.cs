@@ -51,12 +51,14 @@
             // labelTitel
             // 
             labelTitel.AutoSize = true;
-            labelTitel.Font = new Font("Snap ITC", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTitel.Location = new Point(137, 9);
+            labelTitel.BackColor = Color.Transparent;
+            labelTitel.Font = new Font("Snap ITC", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitel.ForeColor = Color.Brown;
+            labelTitel.Location = new Point(148, 0);
             labelTitel.Name = "labelTitel";
-            labelTitel.Size = new Size(320, 48);
+            labelTitel.Size = new Size(295, 63);
             labelTitel.TabIndex = 3;
-            labelTitel.Text = "Dodging Game";
+            labelTitel.Text = "Save Bax";
             // 
             // labelScore
             // 
@@ -86,20 +88,21 @@
             // gamePanel
             // 
             gamePanel.Anchor = AnchorStyles.None;
-            gamePanel.BackColor = Color.Transparent;
+            gamePanel.BackColor = Color.Black;
+            gamePanel.BorderStyle = BorderStyle.FixedSingle;
             gamePanel.Location = new Point(96, 107);
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
             // 
-            // DadgingGameForm
+            // DodgingGameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.SteelBlue;
+            BackColor = Color.MidnightBlue;
             ClientSize = new Size(602, 699);
             Controls.Add(panel1);
-            Name = "DadgingGameForm";
+            Name = "DodgingGameForm";
             Text = "Dodging Game";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
