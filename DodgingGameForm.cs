@@ -4,11 +4,12 @@ using NAudio.Wave;
 
 namespace DodgingGame
 {
+   
     public partial class DodgingGameForm : Form
     {
         private int playerX; // Player's horizontal position
         private int playerY; // Player's vertical position
-        private int playerWidth = 50; // Width of the player
+        private int playerWidth = 45; // Width of the player
         private int playerHeight = 40; // Height of the player
         private int playerSpeed = 10; // Player's movement speed
 
@@ -296,9 +297,6 @@ namespace DodgingGame
             }
         }
 
-        public static class GameSession
-        {
-            public static int CurrentScore { get; set; } = 0;
-        }
+        
     }
 }

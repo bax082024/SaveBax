@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DodgingGame;
 
 namespace DodgingGame.UI
 {
@@ -59,6 +61,21 @@ namespace DodgingGame.UI
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+
+            // Draw the gradient background for the entire form
+            using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.LightSkyBlue,  // Top color
+                Color.DarkBlue,        // Bottom color
+                LinearGradientMode.Vertical))
+            {
+                e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
+            }
         }
     }
 }
