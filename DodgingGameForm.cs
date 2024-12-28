@@ -9,8 +9,8 @@ namespace DodgingGame
     {
         private int playerX; // Player's horizontal position
         private int playerY; // Player's vertical position
-        private int playerWidth = 45; // Width of the player
-        private int playerHeight = 40; // Height of the player
+        private int playerWidth = 40; // Width of the player
+        private int playerHeight = 45; // Height of the player
         private int playerSpeed = 10; // Player's movement speed
 
         private List<Rectangle> obstacles = new List<Rectangle>(); // Obstacles
