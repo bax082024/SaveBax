@@ -31,6 +31,7 @@ namespace DodgingGame
         {
             InitializeComponent();
 
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
 
             // Load the images
@@ -43,8 +44,7 @@ namespace DodgingGame
 
             // Enable double buffering for smoother graphics
             this.DoubleBuffered = true;
-
-            this.BackColor = Color.Transparent;
+         
 
             // Configure the game timer
             gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
@@ -141,20 +141,8 @@ namespace DodgingGame
             }
         }
 
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
+        
 
-            // Draw the gradient background for the entire form
-            using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
-                this.ClientRectangle,
-                Color.LightSkyBlue,  // Top color
-                Color.Orange,        // Bottom color
-                LinearGradientMode.Vertical))
-            {
-                e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
-            }
-        }
 
 
 
