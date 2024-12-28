@@ -153,6 +153,7 @@ namespace DodgingGame
                 if (player.IntersectsWith(obstacle))
                 {
                     gameTimer.Stop();
+                    GameSession.CurrentScore = score;
 
                     // Ensure collision sound plays
                     try
@@ -172,11 +173,10 @@ namespace DodgingGame
 
                     MessageBox.Show($"Game Over! Score: {score} Level: {level}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Prompt the player for their name
-                    string playerName = PromptForName();
-                    if (!string.IsNullOrEmpty(playerName))
+                    // Open the high score form
+                    using (var highScoreForm = new HighScoreForm())
                     {
-                        SaveHighScore(playerName, score);
+                        highScoreForm.ShowDialog();
                     }
 
 
@@ -186,8 +186,7 @@ namespace DodgingGame
 
             // Update score and level
             score++;
-            GameSession.CurrentScore = score;
-            labelScore.Text = $"Score: {score}";
+            GameSession.CurrentScore = score;            
             if (score % pointsToNextLevel == 0) // Level up
             {
                 level++;
@@ -279,18 +278,7 @@ namespace DodgingGame
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-
-        private string PromptForName()
-        {
-            using (var inputForm = new InputBox("Enter your name:", "High Score"))
-            {
-                if (inputForm.ShowDialog() == DialogResult.OK)
-                {
-                    return inputForm.InputText;
-                }
-            }
-            return string.Empty;
-        }
+       
 
         private void SaveHighScore(string playerName, int score)
         {
@@ -302,7 +290,10 @@ namespace DodgingGame
 
         private void buttonHighScores_Click(object sender, EventArgs e)
         {
-            highScoresForm.ShowDialog();
+            using (var highScoreForm = new HighScoreForm())
+            {
+                highScoreForm.ShowDialog();
+            }
         }
 
         public static class GameSession
