@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            buttonHighScores = new Button();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             labelLevel = new Label();
@@ -43,7 +44,6 @@
             labelScore = new Label();
             buttonStart = new Button();
             gamePanel = new Panel();
-            buttonHighScores = new Button();
             panel1.SuspendLayout();
             statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -76,6 +76,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(602, 699);
             panel1.TabIndex = 0;
+            // 
+            // buttonHighScores
+            // 
+            buttonHighScores.BackColor = Color.SlateBlue;
+            buttonHighScores.FlatStyle = FlatStyle.Flat;
+            buttonHighScores.Location = new Point(426, 648);
+            buttonHighScores.Name = "buttonHighScores";
+            buttonHighScores.Size = new Size(75, 26);
+            buttonHighScores.TabIndex = 13;
+            buttonHighScores.Text = "HighScores";
+            buttonHighScores.UseVisualStyleBackColor = false;
+            buttonHighScores.Click += buttonHighScores_Click;
             // 
             // statusStrip1
             // 
@@ -153,6 +165,7 @@
             // 
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
+            label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Brown;
             label1.Location = new Point(199, 52);
@@ -188,6 +201,7 @@
             labelTitel.Anchor = AnchorStyles.None;
             labelTitel.AutoSize = true;
             labelTitel.BackColor = Color.Transparent;
+            labelTitel.FlatStyle = FlatStyle.Popup;
             labelTitel.Font = new Font("Snap ITC", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTitel.ForeColor = Color.Brown;
             labelTitel.Location = new Point(148, 0);
@@ -231,18 +245,6 @@
             gamePanel.Name = "gamePanel";
             gamePanel.Size = new Size(400, 500);
             gamePanel.TabIndex = 0;
-            // 
-            // buttonHighScores
-            // 
-            buttonHighScores.BackColor = Color.SlateBlue;
-            buttonHighScores.FlatStyle = FlatStyle.Flat;
-            buttonHighScores.Location = new Point(426, 648);
-            buttonHighScores.Name = "buttonHighScores";
-            buttonHighScores.Size = new Size(75, 26);
-            buttonHighScores.TabIndex = 13;
-            buttonHighScores.Text = "HighScores";
-            buttonHighScores.UseVisualStyleBackColor = false;
-            buttonHighScores.Click += buttonHighScores_Click;
             // 
             // DodgingGameForm
             // 

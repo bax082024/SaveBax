@@ -40,21 +40,17 @@ namespace DodgingGame.UI
                 return;
             }
 
-            // Get the last game score (you can pass it as a parameter or retrieve it from another source)
-            int score = GameSession.CurrentScore; // This assumes you track the score in the main game
+            int score = GameSession.CurrentScore;
 
-            // Save the new high score
             var highScores = JsonHelper.LoadHighScores();
             highScores.Add(new HighScore { PlayerName = playerName, Score = score });
-            highScores.Sort((x, y) => y.Score.CompareTo(x.Score)); // Sort by highest score
+            highScores.Sort((x, y) => y.Score.CompareTo(x.Score));
             JsonHelper.SaveHighScores(highScores);
 
-            // Update the list box
             LoadHighScores();
 
             MessageBox.Show("High score added!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Clear input
             textBoxInput.Text = string.Empty;
         }
 
@@ -67,7 +63,6 @@ namespace DodgingGame.UI
         {
             base.OnPaintBackground(e);
 
-            // Draw the gradient background for the entire form
             using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
                 this.ClientRectangle,
                 Color.LightSkyBlue,  // Top color
