@@ -7,11 +7,11 @@ namespace DodgingGame
    
     public partial class DodgingGameForm : Form
     {
-        private int playerX; // Player's horizontal position
-        private int playerY; // Player's vertical position
-        private int playerWidth = 40; // Width of the player
-        private int playerHeight = 45; // Height of the player
-        private int playerSpeed = 10; // Player's movement speed
+        private int playerX;
+        private int playerY;
+        private int playerWidth = 40;
+        private int playerHeight = 45;
+        private int playerSpeed = 10;
 
         private List<Obstacle> obstacles = new List<Obstacle>();
         private int obstacleWidth = 20;
@@ -22,26 +22,22 @@ namespace DodgingGame
         private int powerUpWidth = 30;
         private int powerUpHeight = 30;
 
-        // Power-up state
         private bool isInvincible = false;
         private bool isSlowRain = false;
-        private int powerUpDuration = 5000; // 5 seconds
+        private int powerUpDuration = 5000;
         private DateTime powerUpStartTime;
 
-        // Load power-up images
         private Image umbrellaImage;
         private Image raincoatImage;
 
 
-        private int score = 0; // Game score
+        private int score = 0;
         
-
         private System.Windows.Forms.Timer gameTimer = new System.Windows.Forms.Timer();
-        private Random random = new Random(); // Random number generator
+        private Random random = new Random();
 
         private bool moveLeft, moveRight, moveUp, moveDown;
 
-        // Load images
         private Image playerImage;
         private Image obstacleImage;
 
@@ -50,8 +46,8 @@ namespace DodgingGame
         private AudioFileReader backgroundMusic;
         private AudioFileReader collisionSound;
 
-        private int level = 1; // Current game level
-        private int pointsToNextLevel = 150; // Points required to level up
+        private int level = 1;
+        private int pointsToNextLevel = 150;
 
 
 
@@ -62,38 +58,30 @@ namespace DodgingGame
             this.DoubleBuffered = true;
             this.KeyPreview = true;
 
-            // Load the background music
             backgroundMusic = new AudioFileReader("Sounds/gameplay.mp3");
             backgroundPlayer = new WaveOutEvent();
             backgroundPlayer.Init(backgroundMusic);
 
-            // Load collision sound effect
             collisionSound = new AudioFileReader("Sounds/collision.mp3");
             effectPlayer = new WaveOutEvent();
 
-            // Play background music on loop
             backgroundPlayer.PlaybackStopped += (s, e) =>
             {
-                backgroundMusic.Position = 0; // Restart the music
+                backgroundMusic.Position = 0;
                 backgroundPlayer.Play();
             };
 
-            // Load the images
             playerImage = Image.FromFile("Images/Bax.jpg");
             obstacleImage = Image.FromFile("Images/water.png");
             umbrellaImage = Image.FromFile("Images/umbrella.png");
             raincoatImage = Image.FromFile("Images/raincoat.png");
 
-            // Handle key events for player movement
             this.KeyDown += Form1_KeyDown;
             this.KeyUp += Form1_KeyUp;
 
-            // Enable double buffering for smoother graphics
             this.DoubleBuffered = true;
 
-
-            // Configure the game timer
-            gameTimer.Interval = 20; // 20ms per tick (50 frames per second)
+            gameTimer.Interval = 20;
             gameTimer.Tick += GameTimer_Tick;
 
             this.KeyDown += Form1_KeyDown;
@@ -102,26 +90,22 @@ namespace DodgingGame
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            // Reset game state
-            playerX = gamePanel.Width / 2; // Start in the middle
+            playerX = gamePanel.Width / 2;
             playerY = gamePanel.Height - playerHeight;
             obstacles.Clear();
             score = 0;
             level = 1;
             obstacleSpeed = 5;
 
-            // Update UI
             labelScore.Text = $"Score: {score}";
             labelLevel.Text = $"Level: {level}";
 
-            // Start background music
             if (backgroundPlayer.PlaybackState != PlaybackState.Playing)
             {
-                backgroundMusic.Position = 0; // Reset music
+                backgroundMusic.Position = 0;
                 backgroundPlayer.Play();
             }
 
-            // Start the game
             gameTimer.Start();
 
             this.Focus();
@@ -131,7 +115,6 @@ namespace DodgingGame
 
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            // Move the player
             if (moveLeft && playerX > 0)
                 playerX -= playerSpeed;
             if (moveRight && playerX + playerWidth < gamePanel.Width)
@@ -142,7 +125,6 @@ namespace DodgingGame
                 playerY += playerSpeed;
 
 
-            // Move obstacles down
             for (int i = 0; i < obstacles.Count; i++)
             {
                 obstacles[i].Rect = new Rectangle(
@@ -153,11 +135,9 @@ namespace DodgingGame
                 );
             }
 
-            // Remove obstacles that move off the screen
             obstacles.RemoveAll(o => o.Rect.Y > gamePanel.Height);
 
-            // Add new obstacles randomly
-            if (random.Next(0, 100) < 10) // 10% chance to spawn
+            if (random.Next(0, 100) < 10)
             {
                 int obstacleX = random.Next(0, gamePanel.Width - obstacleWidth);
                 obstacles.Add(new Obstacle
@@ -178,10 +158,10 @@ namespace DodgingGame
 
             powerUps.RemoveAll(p => p.Rect.Y > gamePanel.Height);
 
-            if (random.Next(0, 1000) < 2) // 0.05% chance to spawn
+            if (random.Next(0, 1000) < 2)
             {
                 int powerUpX = random.Next(0, gamePanel.Width - powerUpWidth);
-                bool isUmbrella = random.Next(0, 2) == 0; // 50% chance
+                bool isUmbrella = random.Next(0, 2) == 0;
 
                 powerUps.Add(new PowerUp
                 {
@@ -190,18 +170,15 @@ namespace DodgingGame
                 });
             }
 
-
-            // Check for collisions
             Rectangle player = new Rectangle(playerX, playerY, playerWidth, playerHeight);
 
             foreach (var obstacle in obstacles)
             {
-                if (!isInvincible && player.IntersectsWith(obstacle.Rect)) // Skip collision if invincible
+                if (!isInvincible && player.IntersectsWith(obstacle.Rect))
                 {
                     gameTimer.Stop();
                     GameSession.CurrentScore = score;
 
-                    // Play collision sound and show game over
                     try
                     {
                         if (effectPlayer.PlaybackState == PlaybackState.Playing)
@@ -209,7 +186,7 @@ namespace DodgingGame
                             effectPlayer.Stop();
                         }
                         effectPlayer.Init(collisionSound);
-                        collisionSound.Position = 0; // Reset sound position
+                        collisionSound.Position = 0;
                         effectPlayer.Play();
                     }
                     catch (Exception ex)
@@ -219,7 +196,6 @@ namespace DodgingGame
 
                     MessageBox.Show($"Game Over! Score: {score} Level: {level}", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Open the high score form
                     using (var highScoreForm = new HighScoreForm())
                     {
                         highScoreForm.ShowDialog();
@@ -235,12 +211,12 @@ namespace DodgingGame
                 {
                     powerUps.Remove(powerUp);
 
-                    if (powerUp.Type == "umbrella") // Activate umbrella effect
+                    if (powerUp.Type == "umbrella")
                     {
                         isInvincible = true;
                         powerUpStartTime = DateTime.Now;
                     }
-                    else if (powerUp.Type == "raincoat") // Activate raincoat effect
+                    else if (powerUp.Type == "raincoat")
                     {
                         isSlowRain = true;
                         powerUpStartTime = DateTime.Now;
@@ -250,47 +226,39 @@ namespace DodgingGame
             }
 
 
-            // Deactivate power-ups after their duration
             if ((isInvincible || isSlowRain) && (DateTime.Now - powerUpStartTime).TotalMilliseconds > powerUpDuration)
             {
                 if (isSlowRain)
                 {
-                    obstacleSpeed += 3; // Reset obstacle speed
+                    obstacleSpeed += 3;
                 }
 
                 isInvincible = false;
                 isSlowRain = false;
             }
 
-            // Update score and level
             score++;
             GameSession.CurrentScore = score;            
-            if (score % pointsToNextLevel == 0) // Level up
+            if (score % pointsToNextLevel == 0)
             {
                 level++;
-                obstacleSpeed += 2; // Increase obstacle speed
+                obstacleSpeed += 2;
 
             }
 
-            // Update UI
             labelScore.Text = $"Score: {score}";
             labelLevel.Text = $"Level: {level}";
 
 
-            // Redraw the game
             gamePanel.Invalidate();
         }
-
-
 
         private void GamePanel_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
 
-            // Draw the player with a glow effect when invincible
             if (isInvincible)
             {
-                // Add a glow effect
                 using (SolidBrush glowBrush = new SolidBrush(Color.FromArgb(100, Color.Yellow)))
                 {
                     g.FillEllipse(glowBrush, playerX - 5, playerY - 5, playerWidth + 10, playerHeight + 10);
@@ -298,10 +266,8 @@ namespace DodgingGame
             }
 
 
-            // Draw the player
             g.DrawImage(playerImage, playerX, playerY, playerWidth, playerHeight);
 
-            // Draw the obstacles
             foreach (var obstacle in obstacles)
             {
                 g.DrawImage(obstacleImage, obstacle.Rect.X, obstacle.Rect.Y, obstacleWidth, obstacleHeight);
@@ -321,24 +287,20 @@ namespace DodgingGame
         {
             base.OnPaintBackground(e);
 
-            // Determine background colors based on active power-up
             Color topColor = Color.LightSkyBlue;
             Color bottomColor = Color.DarkBlue;
 
             if (isInvincible)
             {
-                // Flashing yellow for invincibility
                 topColor = Color.Yellow;
                 bottomColor = Color.Orange;
             }
             else if (isSlowRain)
             {
-                // Darker gradient for slow rain
                 topColor = Color.LightGray;
                 bottomColor = Color.DarkGray;
             }
 
-            // Draw the gradient background for the entire form
             using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
                 this.ClientRectangle,
                 Color.LightSkyBlue,  // Top color
@@ -348,7 +310,6 @@ namespace DodgingGame
                 e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
             }
         }
-
 
         private void Form1_KeyDown(object? sender, KeyEventArgs e)
         {
@@ -394,7 +355,6 @@ namespace DodgingGame
             return base.ProcessCmdKey(ref msg, keyData);
         }
        
-
         private void SaveHighScore(string playerName, int score)
         {
             var highScores = JsonHelper.LoadHighScores();

@@ -20,7 +20,6 @@ C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\umbrell
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\gameplay.mp3
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Sounds\collision.mp3
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\Bax.jpg
-C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\game.png
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\Images\water.png
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\DodgingGame.exe
 C:\HjemmeKode\C-Sharp\MyProjects\SaveBax\bin\Debug\net8.0-windows\DodgingGame.deps.json
